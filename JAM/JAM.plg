@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: JAM - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/JAM.res" /d "_DEBUG" /d "_AFXDLL" "C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\JAM.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPAFC2.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/JAM.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\CatalogDlg.cpp"
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\Game.cpp"
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\JAM.cpp"
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\JAMDoc.cpp"
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\JAMView.cpp"
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\MainFrm.cpp"
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\MusicFile.cpp"
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\MusicNoteList.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPAFC2.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPAFC3.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/JAM.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\Administrator\Desktop\‘¨‘ÛŒ∞__æ¢¿÷Õ≈”Œœ∑\JAM\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPAFC3.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPAFC4.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/JAM.pdb" /debug /machine:I386 /out:"Debug/JAM.exe" /pdbtype:sept 
+".\Debug\CatalogDlg.obj"
+".\Debug\Game.obj"
+".\Debug\JAM.obj"
+".\Debug\JAMDoc.obj"
+".\Debug\JAMView.obj"
+".\Debug\MainFrm.obj"
+".\Debug\MusicFile.obj"
+".\Debug\MusicNoteList.obj"
+".\Debug\StdAfx.obj"
+".\Debug\JAM.res"
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPAFC4.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+CatalogDlg.cpp
+Game.cpp
+JAM.cpp
+JAMDoc.cpp
+JAMView.cpp
+MainFrm.cpp
+MusicFile.cpp
+MusicNoteList.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+JAM.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
