@@ -18,16 +18,16 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-CMusicFile::CMusicFile()
+CMusicFile::CMusicFile()				
 {
-	m_NoteNum = 0;
-	m_InfoMusicPath[0] = 0;
-	m_InfoMusic.FristNote = 0;
-	m_InfoMusic.MusicFilePath[0] = 0;
-	m_InfoMusic.MusicName[0] = 0;
-	m_InfoMusic.MusicSpeed = 0;
-	m_InfoMusic.NoteFilePath[0] = 0;
-	m_InfoMusic.NoteNum = 0;
+	m_NoteNum = 0;							
+	m_InfoMusicPath[0] = 0;					//音乐信息的的文件名
+	m_InfoMusic.FristNote = 0;				//第一个音符出现的时间（拍数）
+	m_InfoMusic.MusicFilePath[0] = 0;		//音频文件的路径
+	m_InfoMusic.MusicName[0] = 0;			//音乐的名字
+	m_InfoMusic.MusicSpeed = 0;				//音乐的速度
+	m_InfoMusic.NoteFilePath[0] = 0;		//乐谱音符文件的路径
+	m_InfoMusic.NoteNum = 0;				
 }
 
 CMusicFile::~CMusicFile()
@@ -48,7 +48,19 @@ void CMusicFile::ReadInfoMusicFile()
 		}
 }
 
-void CMusicFile::ReadNoteFile(const double dbSpeed)
+
+/*
+
+*Summary: read the informatin of Note file
+
+*Parameters:
+
+*     dbSpeed: the speed of falling *    
+
+*Return : true is non
+
+*/
+void CMusicFile::ReadNoteFile(const double dbSpeed)				
 {
 	int			nMode = 0;			//音符样式
 	int			nType = 0;			//音符类型
@@ -71,7 +83,7 @@ void CMusicFile::ReadNoteFile(const double dbSpeed)
 					NoteTemp.NoteType = (nType%10);
 					NoteTemp.NoteMode = (nMode%10);
 					NoteTemp.NotePos.yPos = NotePos;
-					switch (NoteTemp.NoteMode)
+					switch (NoteTemp.NoteMode)					//音符分为7个，分别对应7个位置，这里xpos是各个种类的音符要生成的x轴坐标
 					{
 					case 1:
 						NoteTemp.NotePos.xPos = 5;
