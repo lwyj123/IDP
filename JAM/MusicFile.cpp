@@ -131,6 +131,18 @@ void CMusicFile::ReadNoteFile(const double dbSpeed)
 	}
 }
 
+
+/*
+
+*Summary: set the informatin of music path
+
+*Parameters:
+
+*     Path: the path of the file *    
+
+*Return : true is non
+
+*/
 void CMusicFile::SetInfoMusicPath(const char* Path)
 {
 	strcpy(m_InfoMusicPath, Path);
