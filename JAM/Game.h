@@ -38,7 +38,6 @@ protected:
 	void ShowPill();								//打印药丸
 	void ShowBeatState();					//打印打击音符的状态
 	void ShowSeries();								//打印连击数
-	void ShowArtStat();								//打印打技术统计
 	void PrintNum(int Num, CDC& PicDC, int Height, int Width, int xPos, int yPos);
 	void KeyUpBeat(int State);
 	void KeyDownBeat(int State);

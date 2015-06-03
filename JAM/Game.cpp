@@ -263,7 +263,6 @@ void CGame::ShowBG(CDC* pDC)
 		ShowCharacter();
 		ShowKeyDown();
 		ShowBeatArea();
-		ShowArtStat();
         ShowPill();
 		if (m_PrintState.SeriesState)
 		{
@@ -305,7 +304,6 @@ void CGame::InitializationDC()
 	LoadBMPToDC(m_PicDC.L_Character, IDB_BITMAP_CHARACTER);	
 	LoadBMPToDC(m_PicDC.L_PicKey, IDB_BITMAP_KEYDOWN);	
 	LoadBMPToDC(m_PicDC.L_Grade, IDB_BITMAP_GRADE);
-	LoadBMPToDC(m_PicDC.L_ArtStat, IDB_BITMAP_ARTSTATNUM);
 	LoadBMPToDC(m_PicDC.L_PicBeatState, IDB_BITMAP_BEATSTATE);
 	LoadBMPToDC(m_PicDC.L_Pill, IDB_BITMAP_PILL);
 	LoadBMPToDC(m_PicDC.L_Series, IDB_BITMAP_SERIES);	
@@ -698,18 +696,6 @@ void CGame::PrintNum(int Num, CDC& PicDC, int Height, int Width, int xPos, int y
 		Temp = Temp/10;
 	}
 }
-
-void CGame::ShowArtStat()
-{
-	PrintNum(m_ArtStat.nGrade, m_PicDC.L_Grade, 22, 24, 170, 565);
-	PrintNum(m_ArtStat.CoolNum, m_PicDC.L_ArtStat, 9, 9, 647, 572);
-	PrintNum(m_ArtStat.BadNum, m_PicDC.L_ArtStat, 9, 9, 647, 582);
-	PrintNum(m_ArtStat.GoodNum, m_PicDC.L_ArtStat, 9, 9, 718, 572);
-	PrintNum(m_ArtStat.MissNum, m_PicDC.L_ArtStat, 9, 9, 718, 582);
-	PrintNum(m_ArtStat.MaxSeriesNum, m_PicDC.L_ArtStat, 9, 9, 660, 557);
-}
-
-
 
 void CGame::ShowSeries()
 {

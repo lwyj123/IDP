@@ -14,7 +14,6 @@
 #define IDB_BITMAP_CHARACTER            151
 #define IDB_BITMAP_KEYDOWN              152
 #define IDB_BITMAP_GRADE                153
-#define IDB_BITMAP_ARTSTATNUM           154
 #define IDB_BITMAP_BEATSTATE            158
 #define IDB_BITMAP_PILL                 159
 #define IDB_BITMAP_SERIES               160
