@@ -58,9 +58,8 @@ struct PicDC
 	CDC		L_PicKey;				//按键按下图片
 	CDC		L_PicBeatState;			//音符打击时状态图片
 	CDC		L_Series;				//连击数字图片
-	CDC		L_Character;			//人物图片
+
 	CDC		L_Pill;					//药丸图片
-	CDC		L_Grade;				//总分
 	CDC		L_ArtStat;				//技术统计
 };
 

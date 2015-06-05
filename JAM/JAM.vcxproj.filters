@@ -84,19 +84,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\ArtStatNum.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\BeatState.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="res\BG_VOS.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\character.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\effect.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\ico128.ico">
@@ -121,9 +109,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\Num.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\Number.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\open.bmp">

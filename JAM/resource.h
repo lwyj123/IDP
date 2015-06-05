@@ -11,9 +11,7 @@
 #define IDB_BITMAP_KEY_1                143
 #define IDB_BITMAP_KEY_2                144
 #define IDD_DIALOG_CATALOG              150
-#define IDB_BITMAP_CHARACTER            151
 #define IDB_BITMAP_KEYDOWN              152
-#define IDB_BITMAP_GRADE                153
 #define IDB_BITMAP_PILL                 159
 #define IDB_BITMAP_SERIES               160
 #define IDC_LIST_CATALOG                1000

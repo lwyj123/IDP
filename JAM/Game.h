@@ -41,7 +41,6 @@ protected:
 	void KeyUpBeat(int State);
 	void KeyDownBeat(int State);
 	void ShowKeyDown();								//打印键盘按下图片
-	void ShowCharacter();							//打印人物动画
 	void ShowBeatArea();							//打印音符打击区
 	void BeatNote(NoteInfo Note ,int State);						//打击音符
 	void ShowCartoon();								//打印开场动画

@@ -260,7 +260,6 @@ void CGame::ShowBG(CDC* pDC)
 						strlen(m_InfoMusic.MusicName)); // 打印歌曲名称
 		m_PicDC.L_PicDC.TextOut( 340, 550, szSpeed, 
 						strlen(szSpeed)); // 打印玩家选择的速度
-		ShowCharacter();
 		ShowKeyDown();
 		ShowBeatArea();
         ShowPill();
@@ -300,9 +299,7 @@ void CGame::InitializationDC()
 	LoadBMPToDC(m_PicDC.L_PicNote[0], IDB_BITMAP_KEY_0);
 	LoadBMPToDC(m_PicDC.L_PicNote[1], IDB_BITMAP_KEY_1);
 	LoadBMPToDC(m_PicDC.L_PicNote[2], IDB_BITMAP_KEY_2);
-	LoadBMPToDC(m_PicDC.L_Character, IDB_BITMAP_CHARACTER);	
 	LoadBMPToDC(m_PicDC.L_PicKey, IDB_BITMAP_KEYDOWN);	
-	LoadBMPToDC(m_PicDC.L_Grade, IDB_BITMAP_GRADE);
 	LoadBMPToDC(m_PicDC.L_Pill, IDB_BITMAP_PILL);
 	LoadBMPToDC(m_PicDC.L_Series, IDB_BITMAP_SERIES);	
 }
@@ -527,35 +524,6 @@ void CGame::PrintBeatArea()
 	ReadNoteFile(m_UserSpeed);
 	CreateBeatArea();
 	PrintNote();
-}
-
-void CGame::ShowCharacter()
-{
-	static int nCharacter = 0;
-	static int nI = 0;		//控制人物变化速度
-	COLORREF nColor = m_PicDC.L_Character.GetPixel(0, 0); // 获取透明色
-
-	::TransparentBlt(m_PicDC.L_PicDC.GetSafeHdc(), // 目标DC
-					400, 200,
-					119, 148,
-					m_PicDC.L_Character.GetSafeHdc(), // 源DC
-					nCharacter*121, 0, 
-					119, 148,
-					nColor); // 透明色
-	if (nI == 1)
-	{
-		nCharacter++;
-		nI = 0;
-	}
-	else
-	{
-		nI++;
-	}
-
-	if (nCharacter > 20 )
-	{
-		nCharacter = 0;
-	}
 }
 
 void CGame::GameKeyUp(UINT nChar)

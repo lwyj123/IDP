@@ -164,11 +164,7 @@
     <ClInclude Include="StdAfx.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\ArtStatNum.bmp" />
-    <Image Include="res\BeatState.bmp" />
     <Image Include="res\BG_VOS.bmp" />
-    <Image Include="res\character.bmp" />
-    <Image Include="res\effect.bmp" />
     <Image Include="res\ico128.ico" />
     <Image Include="res\JAM.ico" />
     <Image Include="res\JAMDoc.ico" />
@@ -177,7 +173,6 @@
     <Image Include="res\key_3.bmp" />
     <Image Include="res\KeyDown.bmp" />
     <Image Include="res\Num.bmp" />
-    <Image Include="res\Number.bmp" />
     <Image Include="res\open.bmp" />
     <Image Include="res\pill.bmp" />
   </ItemGroup>
