@@ -267,7 +267,6 @@ void CGame::ShowBG(CDC* pDC)
 		if (m_PrintState.SeriesState)
 		{
             ShowSeries();
-			ShowBeatState();
 		}
         
         if (m_PrintState.BeatState != 0 || m_PrintState.SeriesState != 0)
@@ -304,7 +303,6 @@ void CGame::InitializationDC()
 	LoadBMPToDC(m_PicDC.L_Character, IDB_BITMAP_CHARACTER);	
 	LoadBMPToDC(m_PicDC.L_PicKey, IDB_BITMAP_KEYDOWN);	
 	LoadBMPToDC(m_PicDC.L_Grade, IDB_BITMAP_GRADE);
-	LoadBMPToDC(m_PicDC.L_PicBeatState, IDB_BITMAP_BEATSTATE);
 	LoadBMPToDC(m_PicDC.L_Pill, IDB_BITMAP_PILL);
 	LoadBMPToDC(m_PicDC.L_Series, IDB_BITMAP_SERIES);	
 }
@@ -727,21 +725,6 @@ void CGame::ShowSeries()
 							nColor); // 透明色
 		}
 		Temp = Temp/10;
-    }
-}
-
-void CGame::ShowBeatState()
-{
-    if (m_PrintState.BeatState != 0)
-    {
-		COLORREF nColor = m_PicDC.L_PicBeatState.GetPixel(0, 0); // 获取透明色
-		::TransparentBlt(m_PicDC.L_PicDC.GetSafeHdc(), // 目标DC
-						40+(int)((126*(1-m_dbPicSize))/2), 300+(int)((73*(1-m_dbPicSize))/2),
-						(int)(126*m_dbPicSize), (int)(37*m_dbPicSize),
-						m_PicDC.L_PicBeatState.GetSafeHdc(), // 源DC
-						0, 37*(m_PrintState.BeatState - 1), 
-						126, 37,
-						nColor); // 透明色
     }
 }
 

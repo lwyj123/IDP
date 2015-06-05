@@ -221,7 +221,6 @@ IDB_BITMAP_OPEN         BITMAP  DISCARDABLE     "res\\open.bmp"
 IDB_BITMAP_CHARACTER    BITMAP  DISCARDABLE     "res\\character.bmp"
 IDB_BITMAP_KEYDOWN      BITMAP  DISCARDABLE     "res\\KeyDown.bmp"
 IDB_BITMAP_GRADE        BITMAP  DISCARDABLE     "res\\Number.bmp"
-IDB_BITMAP_BEATSTATE    BITMAP  DISCARDABLE     "res\\BeatState.bmp"
 IDB_BITMAP_PILL         BITMAP  DISCARDABLE     "res\\pill.bmp"
 IDB_BITMAP_SERIES       BITMAP  DISCARDABLE     "res\\Num.bmp"
 

@@ -36,7 +36,6 @@ public:
 protected:
 	void BrushNote(NoteInfo Note);					//刷黑音符
 	void ShowPill();								//打印药丸
-	void ShowBeatState();					//打印打击音符的状态
 	void ShowSeries();								//打印连击数
 	void PrintNum(int Num, CDC& PicDC, int Height, int Width, int xPos, int yPos);
 	void KeyUpBeat(int State);
