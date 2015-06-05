@@ -12,7 +12,6 @@
 #define IDB_BITMAP_KEY_2                144
 #define IDD_DIALOG_CATALOG              150
 #define IDB_BITMAP_KEYDOWN              152
-#define IDB_BITMAP_PILL                 159
 #define IDB_BITMAP_SERIES               160
 #define IDC_LIST_CATALOG                1000
 #define ID_MUSIC_START                  32772

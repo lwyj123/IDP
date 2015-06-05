@@ -300,7 +300,6 @@ void CGame::InitializationDC()
 	LoadBMPToDC(m_PicDC.L_PicNote[1], IDB_BITMAP_KEY_1);
 	LoadBMPToDC(m_PicDC.L_PicNote[2], IDB_BITMAP_KEY_2);
 	LoadBMPToDC(m_PicDC.L_PicKey, IDB_BITMAP_KEYDOWN);	
-	LoadBMPToDC(m_PicDC.L_Pill, IDB_BITMAP_PILL);
 	LoadBMPToDC(m_PicDC.L_Series, IDB_BITMAP_SERIES);	
 }
 
@@ -696,19 +695,6 @@ void CGame::ShowSeries()
     }
 }
 
-void CGame::ShowPill()
-{
-    if (m_ArtStat.PillNum > 0)
-	{
-		for (int i=0; i<m_ArtStat.PillNum; i++)
-		{
-			m_PicDC.L_PicDC.BitBlt(200, 2+(30+1)*(4-i),
-                                    30, 30, 
-                                    &m_PicDC.L_Pill, 
-                                    0, 0, SRCCOPY);
-		}
-	}
-}
 
 void CGame::BrushNote(NoteInfo Note)
 {
