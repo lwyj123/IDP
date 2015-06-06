@@ -14,7 +14,7 @@ class CMusicNoteList
 {
 public:
 	void PrintNoteList(PicDC& Pic, int PicHeight);				//´òÓ¡Òô·û
-	void MoveNoteList(double Speed, PrintState& State, ArtStat& Art);//ÒÆ¶¯Òô·û
+	void MoveNoteList(double Speed, PrintState& State);//ÒÆ¶¯Òô·û
 	CMusicNoteList();
 	virtual ~CMusicNoteList();
 	CList<NoteInfo, NoteInfo&> m_NoteInfoList;

@@ -7,14 +7,14 @@ struct NotePoint
 	double		yPos;			//纵坐标
 };
 
-struct NoteInfo
+struct NoteInfo		//一个音符，包含音符样式音符类型和音符坐标
 {
 	int				NoteMode;		//音符样式
 	int				NoteType;		//音符类型	
 	NotePoint		NotePos;		//音符坐标
 };
 
-struct InfoMusic
+struct InfoMusic	//乐谱文件信息结构体，存有乐谱的信息
 {
 	char	MusicFilePath[40];			//音乐文件路径
 	char	MusicName[30];				//音乐名称
@@ -24,27 +24,13 @@ struct InfoMusic
 	int		NoteNum;					//音符数
 };
 
-struct PrintState
+struct PrintState				//控制打印状态的结构体
 {
 	bool	IsLongNote[7];		//是否是长音符
 	bool	PrintKey[7];		//控制按键是否打印按下效果
 	bool	SeriesState;		//控制是否打印连击数
 	bool	CartoonState;		//控制是否打印开场动画
 	int		BeatState;			//控制是否打印打击音符的状态（0为不打印）
-};
-
-struct ArtStat
-{
-	int		PillNum;			//药丸数
-	int		CoolNum;			//统计打击为COOL的数量
-	int		GoodNum;			//统计打击为GOOD的数量
-	int		BadNum;				//统计打击为BAD的数量
-	int		MissNum;			//统计打击为MISS的数量
-	int		SeriesNum;			//统计连击的数量（初始要为-1）
-	int		MaxSeriesNum;		//统计最大连击的数量
-	int		nGrade;				//总成绩
-	int		Jam;				//JAM气值
-	int		Award;				//JAM爆气后,累计的奖励分数
 };
 
 struct PicDC

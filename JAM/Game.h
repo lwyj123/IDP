@@ -35,8 +35,6 @@ public:
 
 protected:
 	void BrushNote(NoteInfo Note);					//刷黑音符
-	void ShowPill();								//打印药丸
-	void ShowSeries();								//打印连击数
 	void PrintNum(int Num, CDC& PicDC, int Height, int Width, int xPos, int yPos);
 	void KeyUpBeat(int State);
 	void KeyDownBeat(int State);
@@ -53,7 +51,6 @@ protected:
 
 	PrintState m_PrintState;
 	PicDC m_PicDC;
-	ArtStat m_ArtStat;
     double m_dbPicSize;
 	int m_BeatHeight;								//音符打击区高度
 	double m_MoveSpeed;								//移动距离

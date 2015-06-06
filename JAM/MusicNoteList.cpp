@@ -26,7 +26,7 @@ CMusicNoteList::~CMusicNoteList()
 
 }
 
-void CMusicNoteList::MoveNoteList(double Speed, PrintState& State, ArtStat& Art) 
+void CMusicNoteList::MoveNoteList(double Speed, PrintState& State) 
 {
 	if (!m_NoteInfoList.IsEmpty())
 	{
@@ -38,19 +38,7 @@ void CMusicNoteList::MoveNoteList(double Speed, PrintState& State, ArtStat& Art)
 				m_NoteInfoList.RemoveHead();
 				PosTemp = m_NoteInfoList.GetHeadPosition();
 				State.BeatState = 4;
-				if(Art.nGrade >= 10)
-				{
-					Art.nGrade = Art.nGrade - 10;
-				}
-				else
-				{
-					Art.nGrade = 0;
-				}
 				State.SeriesState = true;
-				Art.MissNum++;
-				Art.Jam = 0;
-				Art.Award = 0;
-				Art.SeriesNum = -1;
 			}
 			else
 			{

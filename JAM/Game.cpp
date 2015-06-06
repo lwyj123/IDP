@@ -52,21 +52,7 @@ void CGame::BeatNote(NoteInfo Note, int State)
 	if (Note.NotePos.yPos >= 460 && Note.NotePos.yPos <= 500)	
 	{
 		m_PrintState.BeatState = 1;			
-		m_ArtStat.Jam = m_ArtStat.Jam + 4;
-		if (m_ArtStat.Jam >= 100)
-		{
-			m_ArtStat.Award = m_ArtStat.Award + 10;
-			m_ArtStat.Jam = m_ArtStat.Jam -100;
-		}
-		
-		m_ArtStat.nGrade = m_ArtStat.nGrade + m_ArtStat.Award + 200;
-		m_ArtStat.CoolNum++;
-		m_ArtStat.SeriesNum++;
         m_PrintState.SeriesState = true;
-		if (m_ArtStat.SeriesNum > m_ArtStat.MaxSeriesNum)
-		{
-			m_ArtStat.MaxSeriesNum = m_ArtStat.SeriesNum;
-		}
 		BrushNote(Note);
 	}
 	//打击音符为GOOD
@@ -74,53 +60,14 @@ void CGame::BeatNote(NoteInfo Note, int State)
 		(Note.NotePos.yPos > 500 && Note.NotePos.yPos >= 510))	
 	{
 		m_PrintState.BeatState = 2;
-		m_ArtStat.Jam = m_ArtStat.Jam + 2;
-		if (m_ArtStat.Jam >= 100)
-		{
-			m_ArtStat.Award = m_ArtStat.Award + 10;
-			m_ArtStat.Jam = m_ArtStat.Jam -100;
-		}
 		
-		m_ArtStat.nGrade = m_ArtStat.nGrade + m_ArtStat.Award + 100;
-		m_ArtStat.GoodNum++;
-		m_ArtStat.SeriesNum++;
         m_PrintState.SeriesState = true;
-		if (m_ArtStat.SeriesNum > m_ArtStat.MaxSeriesNum)
-		{
-			m_ArtStat.MaxSeriesNum = m_ArtStat.SeriesNum;
-		}
 		BrushNote(Note);
 	}
 	//打击音符为BAD
 	if ((Note.NotePos.yPos < 420 && Note.NotePos.yPos >= 400) ||
 		(Note.NotePos.yPos > 510 && Note.NotePos.yPos >= 520))
 	{
-		if (m_ArtStat.PillNum > 0)
-		{
-			m_PrintState.BeatState = 1;
-			m_ArtStat.Jam = m_ArtStat.Jam + 4;
-			if (m_ArtStat.Jam >= 100)
-			{
-				m_ArtStat.Award = m_ArtStat.Award + 10;
-				m_ArtStat.Jam = m_ArtStat.Jam -100;
-			}
-			m_ArtStat.nGrade = m_ArtStat.nGrade + m_ArtStat.Award + 200;
-			m_ArtStat.CoolNum++;
-			m_ArtStat.SeriesNum++;
-			if (m_ArtStat.SeriesNum > m_ArtStat.MaxSeriesNum)
-			{
-				m_ArtStat.MaxSeriesNum = m_ArtStat.SeriesNum;
-			}
-			m_ArtStat.PillNum--;
-		}
-		else
-		{
-			m_PrintState.BeatState = 3;
-			m_ArtStat.Jam = 0;
-			m_ArtStat.nGrade = m_ArtStat.nGrade + m_ArtStat.Award + 4;
-			m_ArtStat.BadNum++;
-			m_ArtStat.SeriesNum = -1;
-		}
         m_PrintState.SeriesState = true;
 		BrushNote(Note);
 	}
@@ -128,29 +75,8 @@ void CGame::BeatNote(NoteInfo Note, int State)
 	if (Note.NotePos.yPos < 400)
 	{
 		m_PrintState.BeatState = 4;
-		if(m_ArtStat.nGrade >= 10)
-		{
-			m_ArtStat.nGrade = m_ArtStat.nGrade - 10;
-		}
-		else
-		{
-			m_ArtStat.nGrade = 0;
-		}
-		m_ArtStat.MissNum++;
         m_PrintState.SeriesState = true;
-		m_ArtStat.Jam = 0;
-		m_ArtStat.Award = 0;
-		m_ArtStat.SeriesNum = -1;
 		BrushNote(Note);
-	}
-
-	if (m_ArtStat.SeriesNum%15 == 0 && m_ArtStat.SeriesNum != 0)
-	{
-		m_ArtStat.PillNum++;
-		if (m_ArtStat.PillNum > 5)
-		{
-			m_ArtStat.PillNum = 5;
-		}
 	}
 }
 
@@ -262,11 +188,6 @@ void CGame::ShowBG(CDC* pDC)
 						strlen(szSpeed)); // 打印玩家选择的速度
 		ShowKeyDown();
 		ShowBeatArea();
-        ShowPill();
-		if (m_PrintState.SeriesState)
-		{
-            ShowSeries();
-		}
         
         if (m_PrintState.BeatState != 0 || m_PrintState.SeriesState != 0)
 		{     
@@ -329,7 +250,7 @@ void CGame::MoveNote()
 	{
 		for (int i = 0; i < 7; i++)
 		{
-			m_NoteList[i].MoveNoteList(m_MoveSpeed, m_PrintState, m_ArtStat);
+			m_NoteList[i].MoveNoteList(m_MoveSpeed, m_PrintState);
 		}
 	}
 }
@@ -504,16 +425,7 @@ void CGame::ClearNote()
 
 void CGame::InitGame()
 {
-	m_ArtStat.Award = 0;
-	m_ArtStat.BadNum = 0;
-	m_ArtStat.CoolNum = 0;
-	m_ArtStat.GoodNum = 0;
-	m_ArtStat.MissNum = 0;
-	m_ArtStat.Jam = 0;
-	m_ArtStat.MaxSeriesNum = 0;
-	m_ArtStat.nGrade = 0;
-	m_ArtStat.PillNum = 0;
-	m_ArtStat.SeriesNum = 0;
+
 }
 
 void CGame::PrintBeatArea()
@@ -662,38 +574,7 @@ void CGame::PrintNum(int Num, CDC& PicDC, int Height, int Width, int xPos, int y
 	}
 }
 
-void CGame::ShowSeries()
-{
-	int Temp = 0;
-	int nI = 0;
-	int nJ = 0;
-	int nNum = 0;
-	Temp = m_ArtStat.SeriesNum;
-	//统计位数
-	while((Temp = Temp/10)!=0)
-	{
-		nJ++;
-		nNum++;
-	}
-	Temp = m_ArtStat.SeriesNum;
 
-	for (;nJ >= 0; nJ--)
-	{
-		nI = Temp%10;
-		if(nI != 0 || nNum != 0)
-		{
-			COLORREF nColor = m_PicDC.L_Series.GetPixel(1, 1); // 获取透明色
-            ::TransparentBlt(m_PicDC.L_PicDC.GetSafeHdc(), // 目标DC
-							80-nNum*22+44*nJ+(int)((44*(1-m_dbPicSize))/2), 220+(int)((68*(1-m_dbPicSize))/2),
-							(int)(44*m_dbPicSize), (int)(68*m_dbPicSize),
-							m_PicDC.L_Series.GetSafeHdc(), // 源DC
-							44*nI, 0, 
-							44, 68,
-							nColor); // 透明色
-		}
-		Temp = Temp/10;
-    }
-}
 
 
 void CGame::BrushNote(NoteInfo Note)
