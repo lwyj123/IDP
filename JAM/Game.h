@@ -35,10 +35,8 @@ public:
 
 protected:
 	void BrushNote(NoteInfo Note);					//刷黑音符
-	void PrintNum(int Num, CDC& PicDC, int Height, int Width, int xPos, int yPos);
 	void KeyUpBeat(int State);
 	void KeyDownBeat(int State);
-	void ShowKeyDown();								//打印键盘按下图片
 	void ShowBeatArea();							//打印音符打击区
 	void BeatNote(NoteInfo Note ,int State);						//打击音符
 	void ShowCartoon();								//打印开场动画

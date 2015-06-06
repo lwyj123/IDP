@@ -171,10 +171,7 @@
     <Image Include="res\key_1.bmp" />
     <Image Include="res\key_2.bmp" />
     <Image Include="res\key_3.bmp" />
-    <Image Include="res\KeyDown.bmp" />
-    <Image Include="res\Num.bmp" />
     <Image Include="res\open.bmp" />
-    <Image Include="res\pill.bmp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="res\JAM.rc2" />

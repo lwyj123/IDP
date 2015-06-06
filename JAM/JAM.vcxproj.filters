@@ -105,16 +105,7 @@
     <Image Include="res\key_3.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\KeyDown.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\Num.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="res\open.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\pill.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

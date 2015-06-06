@@ -122,8 +122,8 @@ void CGame::ShowKeyArea(int State, int xPos, int yPos, int Width)
 
 		case 4:
 			dbRed = 255;
-			dbGreen = 190;
-			dbBlue = 155;
+			dbGreen = 190;//190
+			dbBlue = 155;//155
 			break;
 	}
 	
@@ -165,6 +165,7 @@ void CGame::ShowKeyArea(int State, int xPos, int yPos, int Width)
 	}
 }
 
+//显示背景
 void CGame::ShowBG(CDC* pDC)
 {
 	if (m_PrintState.CartoonState)
@@ -185,9 +186,8 @@ void CGame::ShowBG(CDC* pDC)
 		m_PicDC.L_PicDC.TextOut(440, 538, m_InfoMusic.MusicName, 
 						strlen(m_InfoMusic.MusicName)); // 打印歌曲名称
 		m_PicDC.L_PicDC.TextOut( 340, 550, szSpeed, 
-						strlen(szSpeed)); // 打印玩家选择的速度
-		ShowKeyDown();
-		ShowBeatArea();
+						strlen(szSpeed)); // 打印玩家选择的速度	
+		ShowBeatArea();			//打印音符通道
         
         if (m_PrintState.BeatState != 0 || m_PrintState.SeriesState != 0)
 		{     
@@ -220,11 +220,10 @@ void CGame::InitializationDC()
 	LoadBMPToDC(m_PicDC.L_PicNote[0], IDB_BITMAP_KEY_0);
 	LoadBMPToDC(m_PicDC.L_PicNote[1], IDB_BITMAP_KEY_1);
 	LoadBMPToDC(m_PicDC.L_PicNote[2], IDB_BITMAP_KEY_2);
-	LoadBMPToDC(m_PicDC.L_PicKey, IDB_BITMAP_KEYDOWN);	
-	LoadBMPToDC(m_PicDC.L_Series, IDB_BITMAP_SERIES);	
 }
 
-void CGame::ShowCartoon()
+//播放开头动画
+void CGame::ShowCartoon()					
 {
 	static int i =0;
 	static int j = 0; 
@@ -326,12 +325,13 @@ void CGame::PrintNote()
 	m_dbPlace = m_BeatHeight - 481;
 }
 
-void CGame::GameKeyDown(UINT nChar)
+//按下游戏按键 
+void CGame::GameKeyDown(UINT nChar)			
 {
 	switch (nChar)
 	{
-	case VK_ESCAPE:
-		m_PrintState.CartoonState = false;
+	case VK_ESCAPE:								//跳过动画
+		m_PrintState.CartoonState = false;			
 		break;
 
 	case 83:	
@@ -351,7 +351,7 @@ void CGame::GameKeyDown(UINT nChar)
 		break;
 
 	case 74:
-		KeyDownBeat(5);	
+		KeyDownBeat(5);	 
 		break;
 
 	case 75:
@@ -470,45 +470,6 @@ void CGame::GameKeyUp(UINT nChar)
 	}
 }
 
-void CGame::ShowKeyDown()
-{
-	if (m_PrintState.PrintKey[0])
-	{
-		m_PicDC.L_PicDC.BitBlt(3, 486, 30, 47, &m_PicDC.L_PicKey, 0, 0, SRCCOPY);
-		ShowKeyArea(1, 4, 480, 30);
-	}
-	if (m_PrintState.PrintKey[1])
-	{
-		m_PicDC.L_PicDC.BitBlt(33, 486, 22, 47, &m_PicDC.L_PicKey, 30, 0, SRCCOPY);
-		ShowKeyArea(2, 34, 480, 22);
-	}
-	if (m_PrintState.PrintKey[2])
-	{
-		m_PicDC.L_PicDC.BitBlt(55, 486, 28, 47, &m_PicDC.L_PicKey, 52, 0, SRCCOPY);
-		ShowKeyArea(3, 56, 480, 28);
-	}
-	if (m_PrintState.PrintKey[3])
-	{
-		m_PicDC.L_PicDC.BitBlt(83, 486, 32, 47, &m_PicDC.L_PicKey, 80, 0, SRCCOPY);
-		ShowKeyArea(4, 84, 480, 32);
-	}
-	if (m_PrintState.PrintKey[4])
-	{
-		m_PicDC.L_PicDC.BitBlt(115, 486, 28, 47, &m_PicDC.L_PicKey, 112, 0, SRCCOPY);
-		ShowKeyArea(5, 116, 480, 28);
-	}
-	if (m_PrintState.PrintKey[5])
-	{
-		m_PicDC.L_PicDC.BitBlt(143, 486, 22, 47, &m_PicDC.L_PicKey, 140, 0, SRCCOPY);
-		ShowKeyArea(6, 144, 480, 22);
-	}
-	if (m_PrintState.PrintKey[6])
-	{
-		m_PicDC.L_PicDC.BitBlt(165, 486, 30, 47, &m_PicDC.L_PicKey, 162, 0, SRCCOPY);
-		ShowKeyArea(7, 166, 480, 30);
-	}
-}
-
 void CGame::KeyDownBeat(int State)
 {
 	m_PrintState.PrintKey[State - 1] = true;
@@ -542,40 +503,6 @@ void CGame::KeyUpBeat(int State)
 		}
 	}
 }
-
-void CGame::PrintNum(int Num, CDC& PicDC, int Height, int Width, int xPos, int yPos)
-{
-	int Temp = 0;
-	int nI = 0;
-	int nJ = 0;
-	int nNum = 0;
-	Temp = Num;
-	//统计位数
-	while((Temp = Temp/10)!=0)
-	{
-		nJ++;
-		nNum++;
-	}
-	Temp = Num;
-
-	for (;nJ >= 0; nJ--)
-	{
-		nI = Temp%10;
-		COLORREF nColor = PicDC.GetPixel(0, 0); // 获取透明色
-		::TransparentBlt(m_PicDC.L_PicDC.GetSafeHdc(), // 目标DC
-						1+xPos-(nNum-nJ)*Width, yPos,
-						Width, Height,
-						PicDC.GetSafeHdc(), // 源DC
-						Width*nI, 0, 
-						Width, Height,
-						nColor); // 透明色
-
-		Temp = Temp/10;
-	}
-}
-
-
-
 
 void CGame::BrushNote(NoteInfo Note)
 {

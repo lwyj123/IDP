@@ -43,8 +43,6 @@ struct PicDC
 	CDC		L_PicNote[3];			//音符图片
 	CDC		L_PicKey;				//按键按下图片
 	CDC		L_PicBeatState;			//音符打击时状态图片
-	CDC		L_Series;				//连击数字图片
-
 	CDC		L_ArtStat;				//技术统计
 };
 

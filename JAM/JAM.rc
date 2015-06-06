@@ -218,8 +218,6 @@ IDB_BITMAP_KEY_0        BITMAP  DISCARDABLE     "res\\key_1.bmp"
 IDB_BITMAP_KEY_1        BITMAP  DISCARDABLE     "res\\key_2.bmp"
 IDB_BITMAP_KEY_2        BITMAP  DISCARDABLE     "res\\key_3.bmp"
 IDB_BITMAP_OPEN         BITMAP  DISCARDABLE     "res\\open.bmp"
-IDB_BITMAP_KEYDOWN      BITMAP  DISCARDABLE     "res\\KeyDown.bmp"
-IDB_BITMAP_SERIES       BITMAP  DISCARDABLE     "res\\Num.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
