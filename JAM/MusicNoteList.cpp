@@ -62,7 +62,7 @@ void CMusicNoteList::PrintNoteList(PicDC& Pic, int PicHeight)
 			TempPos.yPos = PicHeight - (473 - Temp.NotePos.yPos);
 			if (Temp.NoteType == 1 || Temp.NoteType == 3)
 			{				
-				PrintNote(Pic, Temp.NoteMode, TempPos);
+				PrintNote(Pic, TempPos);
 				m_NoteInfoList.GetNext(PosTemp);
 			}
 			else
@@ -74,7 +74,7 @@ void CMusicNoteList::PrintNoteList(PicDC& Pic, int PicHeight)
 				TempNextPos.yPos = PicHeight - (473 - TempNext.NotePos.yPos);
 				while (TempPos.yPos > TempNextPos.yPos)
 				{
-					PrintNote(Pic, Temp.NoteMode, TempPos);
+					PrintNote(Pic, TempPos);
 					TempPos.yPos = TempPos.yPos - 7;
 				}
 			}	
@@ -84,25 +84,9 @@ void CMusicNoteList::PrintNoteList(PicDC& Pic, int PicHeight)
 
 
 
-void CMusicNoteList::PrintNote(PicDC& Pic, int NoteMode, NotePoint Pos)
+void CMusicNoteList::PrintNote(PicDC& Pic, NotePoint Pos)
 {
-	switch (NoteMode)
-	{
-	case 1:
-	case 3:	
-	case 5:
-	case 7:
-		Pic.L_BeatArea.BitBlt((int)Pos.xPos, (int)Pos.yPos,
-			28, 7, &Pic.L_PicNote[0], 0, 0, SRCCOPY);
-		break;
-	case 2:
-	case 6:
-		Pic.L_BeatArea.BitBlt((int)Pos.xPos, (int)Pos.yPos,
-			22, 7, &Pic.L_PicNote[1], 0, 0, SRCCOPY);
-		break;
-	case 4:
-		Pic.L_BeatArea.BitBlt((int)Pos.xPos, (int)Pos.yPos,
-			32, 7, &Pic.L_PicNote[2], 0, 0, SRCCOPY);
-		break;
-	}		
+
+	Pic.L_BeatArea.BitBlt((int)Pos.xPos, (int)Pos.yPos,
+		28, 7, &Pic.L_PicNote[0], 0, 0, SRCCOPY);
 }

@@ -20,7 +20,7 @@ public:
 	CList<NoteInfo, NoteInfo&> m_NoteInfoList;
 
 protected:
-	void PrintNote(PicDC& Pic, int NoteMode, NotePoint Pos);	//打印单个音符
+	void PrintNote(PicDC& Pic, NotePoint Pos);	//打印单个音符
 };
 
 #endif // !defined(AFX_MUSICNOTELIST_H__3B039074_8A06_46C2_8D60_174B1BDF2D60__INCLUDED_)
