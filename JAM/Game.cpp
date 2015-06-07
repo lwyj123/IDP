@@ -55,74 +55,6 @@ void CGame::LoadBMPToDC(CDC& pDC, UINT nIDResource)
 	pDC.SelectObject(&DCBitmap);
 }
 
-void CGame::ShowKeyArea(int State, int xPos, int yPos, int Width)
-{
-	double dbRed = 0;
-	double dbGreen = 0;
-	double dbBlue = 0;
-	switch (State)			//根据按键设置起始颜色
-	{
-		case 1:
-		case 3:
-		case 5:
-		case 7:
-			dbRed = 240;
-			dbGreen = 220;
-			dbBlue = 100;
-			break;
-
-		case 2:
-		case 6:
-			dbRed = 165;
-			dbGreen = 135;
-			dbBlue = 225;
-			break;
-
-		case 4:
-			dbRed = 255;
-			dbGreen = 190;//190
-			dbBlue = 155;//155
-			break;
-	}
-	
-	while (dbRed != 0 || dbGreen != 0 || dbBlue != 0)
-	{
-		CBrush CKeyBrush;
-		CKeyBrush.CreateSolidBrush(RGB(dbRed, dbGreen, dbBlue)); // 设置画刷
-		m_PicDC.L_PicDC.SelectObject(&CKeyBrush);
-		CPen CKeyPen;
-		CKeyPen.CreatePen(PS_NULL, 0, RGB(dbRed, dbGreen, dbBlue)); // 设置画笔
-		m_PicDC.L_PicDC.SelectObject(&CKeyPen); 
-		m_PicDC.L_PicDC.Rectangle(xPos, yPos, xPos+Width, yPos-3);
-
-		if (dbRed >= 4)
-		{
-			dbRed = dbRed - 4;
-		}
-		else
-		{
-			dbRed = 0;
-		}
-		if (dbGreen >= 2)
-		{
-			dbGreen = dbGreen - 2;
-		}
-		else
-		{
-			dbGreen = 0;
-		}
-		if (dbBlue >= 2)
-		{
-			dbBlue = dbBlue - 2;
-		}
-		else
-		{
-			dbBlue = 0;
-		}
-		yPos = yPos - 2;
-	}
-}
-
 //显示背景
 void CGame::ShowBG(CDC* pDC)
 {
@@ -175,9 +107,7 @@ void CGame::InitializationDC()
 	CreateNullBmp(m_PicDC.L_PicDC);
 	LoadBMPToDC(m_PicDC.L_PicArea, IDB_BITMAP_BG);
 	LoadBMPToDC(m_PicDC.L_CartoonDC, IDB_BITMAP_OPEN);
-	LoadBMPToDC(m_PicDC.L_PicNote[0], IDB_BITMAP_KEY_0);
-	LoadBMPToDC(m_PicDC.L_PicNote[1], IDB_BITMAP_KEY_1);
-	LoadBMPToDC(m_PicDC.L_PicNote[2], IDB_BITMAP_KEY_2);
+	LoadBMPToDC(m_PicDC.L_PicNote, IDB_BITMAP_KEY);
 }
 
 //播放开头动画
@@ -366,94 +296,4 @@ void CGame::PrintBeatArea()
 	ReadNoteFile(m_UserSpeed);
 	CreateBeatArea();
 	PrintNote();
-}
-
-void CGame::GameKeyUp(UINT nChar)
-{
-	switch (nChar)
-	{
-	case 83:	
-		KeyUpBeat(1);
-		break;
-
-	case 68:
-		KeyUpBeat(2);
-		break;
-
-	case 70:
-		KeyUpBeat(3);
-		break;
-
-	case VK_SPACE:
-		KeyUpBeat(4);
-		break;
-
-	case 74:
-		KeyUpBeat(5);
-		break;
-	case 75:
-		KeyUpBeat(6);
-		break;
-
-	case 76:
-		KeyUpBeat(7);
-		break;	
-	}
-}
-
-
-void CGame::KeyUpBeat(int State)
-{
-	m_PrintState.PrintKey[State - 1] = false;
-	if (m_PrintState.IsLongNote[State - 1])
-	{
-		if (!m_NoteList[State - 1].m_NoteInfoList.IsEmpty())
-		{
-			NoteInfo  Note = m_NoteList[State - 1].m_NoteInfoList.GetHead();
-			if (Note.NotePos.yPos <= 520)
-			{
-                m_dbPicSize = 0.1;
-				m_NoteList[State - 1].m_NoteInfoList.RemoveHead();		
-			}
-			m_PrintState.IsLongNote[State - 1] = false;
-		}
-	}
-}
-
-void CGame::BrushNote(NoteInfo Note)
-{
-	NotePoint Temp = {0};
-	int Width = 0;
-	CBrush NoteBrush;
-	CPen NotePen;
-
-	switch (Note.NoteMode)			
-	{
-		case 1:
-		case 3:
-		case 5:
-		case 7:
-			Width = 29;
-			break;
-
-		case 2:
-		case 6:
-			Width = 23;
-			break;
-
-		case 4:
-			Width = 33;
-			break;
-	}
-	Temp.xPos = Note.NotePos.xPos - 5;
-	Temp.yPos = m_dbPlace + Note.NotePos.yPos + 8;
-		
-	NoteBrush.CreateSolidBrush(RGB(0, 0, 0)); // 设置画刷
-	m_PicDC.L_BeatArea.SelectObject(&NoteBrush);
-
-	NotePen.CreatePen(PS_NULL, 0, RGB(0, 0, 0)); // 设置画笔
-	m_PicDC.L_BeatArea.SelectObject(&NotePen); 
-	m_PicDC.L_BeatArea.Rectangle((int)Temp.xPos, (int)Temp.yPos, 
-						(int)Temp.xPos + Width, (int)(Temp.yPos + 9));
-
 }

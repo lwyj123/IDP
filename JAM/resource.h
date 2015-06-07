@@ -7,9 +7,7 @@
 #define IDR_JAMTYPE                     129
 #define IDB_BITMAP_BG                   131
 #define IDB_BITMAP_OPEN                 138
-#define IDB_BITMAP_KEY_0                142
-#define IDB_BITMAP_KEY_1                143
-#define IDB_BITMAP_KEY_2                144
+#define IDB_BITMAP_KEY					142
 #define IDD_DIALOG_CATALOG              150
 #define IDC_LIST_CATALOG                1000
 #define ID_MUSIC_START                  32772

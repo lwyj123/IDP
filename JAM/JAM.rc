@@ -214,9 +214,7 @@ END
 //
 
 IDB_BITMAP_BG           BITMAP  DISCARDABLE     "res\\BG_VOS.bmp"
-IDB_BITMAP_KEY_0        BITMAP  DISCARDABLE     "res\\key_1.bmp"
-IDB_BITMAP_KEY_1        BITMAP  DISCARDABLE     "res\\key_2.bmp"
-IDB_BITMAP_KEY_2        BITMAP  DISCARDABLE     "res\\key_3.bmp"
+IDB_BITMAP_KEY        BITMAP  DISCARDABLE     "res\\key.bmp"
 IDB_BITMAP_OPEN         BITMAP  DISCARDABLE     "res\\open.bmp"
 
 /////////////////////////////////////////////////////////////////////////////

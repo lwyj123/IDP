@@ -24,7 +24,6 @@ public:
 	void ClearNote();								//清空音符
 	double GetUserSpeed();							//返回玩家游戏速度
 	void GameKeyDown(UINT nChar);							//游戏时按下键盘
-	void GameKeyUp(UINT nChar);								//游戏时放开按键
 	void GameStart();										//开始游戏		
 	void SetUserSpeed(bool IsAddSpeed);						//获得玩家选择速度
 	void MoveNote();										//移动音符
@@ -34,11 +33,8 @@ public:
 	virtual ~CGame();
 
 protected:
-	void BrushNote(NoteInfo Note);					//刷黑音符
-	void KeyUpBeat(int State);
 	void ShowBeatArea();							//打印音符打击区
 	void ShowCartoon();								//打印开场动画
-	void ShowKeyArea(int State, int xPos, int yPos,int Width);		//打印按键区域
 	void LoadBMPToDC(CDC& pDC, UINT nIDResource);					//加载图片
 	void CreateNullBmp(CDC& pDC);									//创建空图
 	void SetNoteSpace();									//获得音符间距
@@ -48,7 +44,7 @@ protected:
 	PrintState m_PrintState;
 	PicDC m_PicDC;
     double m_dbPicSize;
-	int m_BeatHeight;								//音符打击区高度
+	int m_BeatHeight;								//音符打击区高度，即画布总长度
 	double m_MoveSpeed;								//移动距离
 	double m_UserSpeed;							//玩家选择的速度
 	double m_dbPlace;							//打印音符区的位置

@@ -62,8 +62,10 @@ void CMusicFile::ReadInfoMusicFile()
 */
 void CMusicFile::ReadNoteFile(const double dbSpeed)				
 {
-	int			nMode = 0;			//音符样式
+	int			nMode = 0;			//音符样式，为按键位置
 	int			nType = 0;			//音符类型，为1则短音符，为2则长音符
+	//如果nMode和nType 是多个数，例如23 与12  说明 第二位和第三位音符同时出现且第三位音符为长音符
+
 	double		dbNext = 0;			//下个音符间隔的节拍数
 	double		Interval = 0;		//音符间隔
 	ifstream fin;

@@ -40,7 +40,7 @@ struct PicDC
 	CDC		L_CartoonDC;			//¿ª»ú¶¯»­Í¼Æ¬
 	CDC		L_BeatArea;				//Òô·û´ò»÷Çø
 	CDC		L_PicArea;				//±³¾°Í¼Æ¬
-	CDC		L_PicNote[3];			//Òô·ûÍ¼Æ¬
+	CDC		L_PicNote;			//Òô·ûÍ¼Æ¬
 };
 
 #endif

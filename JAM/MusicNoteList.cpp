@@ -60,19 +60,19 @@ void CMusicNoteList::PrintNoteList(PicDC& Pic, int PicHeight)
 			NoteInfo Temp = m_NoteInfoList.GetAt(PosTemp);
 			TempPos.xPos = Temp.NotePos.xPos - 5;
 			TempPos.yPos = PicHeight - (473 - Temp.NotePos.yPos);
-			if (Temp.NoteType == 1 || Temp.NoteType == 3)
+			if (Temp.NoteType == 1 || Temp.NoteType == 3)	//如果音符类型是1或者3
 			{				
 				PrintNote(Pic, TempPos);
 				m_NoteInfoList.GetNext(PosTemp);
 			}
-			else
+			else										//如果音符是长音符，即类型不是1
 			{
 				m_NoteInfoList.GetNext(PosTemp);
 				NoteInfo TempNext = m_NoteInfoList.GetAt(PosTemp);
 				NotePoint TempNextPos ={0};
 				TempNextPos.xPos = TempNext.NotePos.xPos - 5;
 				TempNextPos.yPos = PicHeight - (473 - TempNext.NotePos.yPos);
-				while (TempPos.yPos > TempNextPos.yPos)
+				while (TempPos.yPos > TempNextPos.yPos)				//这里反复打印
 				{
 					PrintNote(Pic, TempPos);
 					TempPos.yPos = TempPos.yPos - 7;
@@ -83,10 +83,10 @@ void CMusicNoteList::PrintNoteList(PicDC& Pic, int PicHeight)
 }
 
 
-
+//在指定位置打印音符
 void CMusicNoteList::PrintNote(PicDC& Pic, NotePoint Pos)
 {
 
 	Pic.L_BeatArea.BitBlt((int)Pos.xPos, (int)Pos.yPos,
-		28, 7, &Pic.L_PicNote[0], 0, 0, SRCCOPY);
+		28, 7, &Pic.L_PicNote, 0, 0, SRCCOPY);
 }

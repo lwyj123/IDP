@@ -115,15 +115,6 @@ void CJAMView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-void CJAMView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags) 
-{
-	// TODO: Add your message handler code here and/or call default
-	CJAMDoc* pDoc = GetDocument();
-	ASSERT_VALID(pDoc);
-	pDoc->CJam.GameKeyUp(nChar);
-	CView::OnKeyUp(nChar, nRepCnt, nFlags);
-}
-
 void CJAMView::OnLButtonDown(UINT nFlags, CPoint point) 
 {
 	// TODO: Add your message handler code here and/or call default
