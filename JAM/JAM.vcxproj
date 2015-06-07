@@ -164,7 +164,7 @@
     <ClInclude Include="StdAfx.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\BG_VOS.bmp" />
+    <Image Include="..\..\..\..\BG_VOS.bmp" />
     <Image Include="res\ico128.ico" />
     <Image Include="res\JAM.ico" />
     <Image Include="res\JAMDoc.ico" />

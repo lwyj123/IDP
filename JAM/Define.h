@@ -1,6 +1,7 @@
 #ifndef _DEFINE_H_
 #define _DEFINE_H_
 
+//音符坐标
 struct NotePoint
 {
 	double		xPos;			//横坐标
@@ -35,15 +36,11 @@ struct PrintState				//控制打印状态的结构体
 
 struct PicDC
 {
-	CDC		L_Effect;				//打击效果	
 	CDC		L_PicDC;				//空图
 	CDC		L_CartoonDC;			//开机动画图片
 	CDC		L_BeatArea;				//音符打击区
 	CDC		L_PicArea;				//背景图片
 	CDC		L_PicNote[3];			//音符图片
-	CDC		L_PicKey;				//按键按下图片
-	CDC		L_PicBeatState;			//音符打击时状态图片
-	CDC		L_ArtStat;				//技术统计
 };
 
 #endif

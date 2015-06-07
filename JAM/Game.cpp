@@ -38,48 +38,6 @@ CGame::~CGame()
 	
 }
 
-void CGame::BeatNote(NoteInfo Note, int State)
-{
-	if (Note.NoteType == 2)
-	{
-		this->m_PrintState.IsLongNote[State - 1] = true;
-	}
-	else
-	{
-		m_PrintState.IsLongNote[State - 1] = false;
-	}
-	//打击音符为COOL
-	if (Note.NotePos.yPos >= 460 && Note.NotePos.yPos <= 500)	
-	{
-		m_PrintState.BeatState = 1;			
-        m_PrintState.SeriesState = true;
-		BrushNote(Note);
-	}
-	//打击音符为GOOD
-	if ((Note.NotePos.yPos < 460 && Note.NotePos.yPos >= 420) ||
-		(Note.NotePos.yPos > 500 && Note.NotePos.yPos >= 510))	
-	{
-		m_PrintState.BeatState = 2;
-		
-        m_PrintState.SeriesState = true;
-		BrushNote(Note);
-	}
-	//打击音符为BAD
-	if ((Note.NotePos.yPos < 420 && Note.NotePos.yPos >= 400) ||
-		(Note.NotePos.yPos > 510 && Note.NotePos.yPos >= 520))
-	{
-        m_PrintState.SeriesState = true;
-		BrushNote(Note);
-	}
-	//打击音符为MISS
-	if (Note.NotePos.yPos < 400)
-	{
-		m_PrintState.BeatState = 4;
-        m_PrintState.SeriesState = true;
-		BrushNote(Note);
-	}
-}
-
 void CGame::CreateNullBmp(CDC& pDC)
 {
 	CWindowDC dc(NULL);
@@ -479,7 +437,6 @@ void CGame::KeyDownBeat(int State)
 		if (Note.NotePos.yPos >= 380 && Note.NotePos.yPos <= 520)
 		{
             m_dbPicSize = 0.1;
-			BeatNote(Note, State);
 			m_NoteList[State - 1].m_NoteInfoList.RemoveHead();
 		}
 	}
@@ -496,7 +453,6 @@ void CGame::KeyUpBeat(int State)
 			if (Note.NotePos.yPos <= 520)
 			{
                 m_dbPicSize = 0.1;
-				BeatNote(Note, State);
 				m_NoteList[State - 1].m_NoteInfoList.RemoveHead();		
 			}
 			m_PrintState.IsLongNote[State - 1] = false;

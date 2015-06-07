@@ -84,9 +84,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\BG_VOS.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="res\ico128.ico">
       <Filter>Resource Files</Filter>
     </Image>
@@ -106,6 +103,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\open.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\BG_VOS.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

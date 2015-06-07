@@ -38,7 +38,6 @@ protected:
 	void KeyUpBeat(int State);
 	void KeyDownBeat(int State);
 	void ShowBeatArea();							//打印音符打击区
-	void BeatNote(NoteInfo Note ,int State);						//打击音符
 	void ShowCartoon();								//打印开场动画
 	void ShowKeyArea(int State, int xPos, int yPos,int Width);		//打印按键区域
 	void LoadBMPToDC(CDC& pDC, UINT nIDResource);					//加载图片
