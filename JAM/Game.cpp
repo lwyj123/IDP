@@ -292,33 +292,6 @@ void CGame::GameKeyDown(UINT nChar)
 		m_PrintState.CartoonState = false;			
 		break;
 
-	case 83:	
-		KeyDownBeat(1);		
-		break;
-
-	case 68:
-		KeyDownBeat(2);	
-		break;
-
-	case 70:
-		KeyDownBeat(3);	
-		break;
-
-	case VK_SPACE:
-		KeyDownBeat(4);	
-		break;
-
-	case 74:
-		KeyDownBeat(5);	 
-		break;
-
-	case 75:
-		KeyDownBeat(6);	
-		break;
-
-	case 76:
-		KeyDownBeat(7);	
-		break;	
 	}
 }
 
@@ -428,19 +401,6 @@ void CGame::GameKeyUp(UINT nChar)
 	}
 }
 
-void CGame::KeyDownBeat(int State)
-{
-	m_PrintState.PrintKey[State - 1] = true;
-	if (!m_NoteList[State - 1].m_NoteInfoList.IsEmpty())
-	{
-		NoteInfo Note = m_NoteList[State - 1].m_NoteInfoList.GetHead();
-		if (Note.NotePos.yPos >= 380 && Note.NotePos.yPos <= 520)
-		{
-            m_dbPicSize = 0.1;
-			m_NoteList[State - 1].m_NoteInfoList.RemoveHead();
-		}
-	}
-}
 
 void CGame::KeyUpBeat(int State)
 {

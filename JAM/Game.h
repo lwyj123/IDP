@@ -36,7 +36,6 @@ public:
 protected:
 	void BrushNote(NoteInfo Note);					//刷黑音符
 	void KeyUpBeat(int State);
-	void KeyDownBeat(int State);
 	void ShowBeatArea();							//打印音符打击区
 	void ShowCartoon();								//打印开场动画
 	void ShowKeyArea(int State, int xPos, int yPos,int Width);		//打印按键区域
