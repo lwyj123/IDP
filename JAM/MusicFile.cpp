@@ -63,7 +63,7 @@ void CMusicFile::ReadInfoMusicFile()
 void CMusicFile::ReadNoteFile(const double dbSpeed)				
 {
 	int			nMode = 0;			//音符样式
-	int			nType = 0;			//音符类型
+	int			nType = 0;			//音符类型，为1则短音符，为2则长音符
 	double		dbNext = 0;			//下个音符间隔的节拍数
 	double		Interval = 0;		//音符间隔
 	ifstream fin;
@@ -76,7 +76,7 @@ void CMusicFile::ReadNoteFile(const double dbSpeed)
 			if (fin.good())
 			{
 				NoteInfo NoteTemp = {0};
-				double NotePos = 473 - (((Interval+m_InfoMusic.FristNote)
+				double NotePos = 473 - (((Interval+m_InfoMusic.FristNote)						//这个改变音符开始位置，数值错的话对不上声音
 						*96)*dbSpeed);
 				while (nMode != 0)
 				{	
